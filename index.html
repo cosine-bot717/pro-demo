@@ -77,6 +77,15 @@ body {
   isolation: isolate;
 }
 
+/* 页面容器裁切层 */
+.pages-wrapper {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+  border-radius: 42px 42px 0 0;
+}
+
 /* ── Status bar ── */
 .status-bar {
   position: absolute; top: 0; left: 0; width: 100%;
@@ -117,22 +126,22 @@ body {
 
 /* ── Bottom nav (标准移动端导航栏) ── */
 .bottom-nav {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  flex: 0 0 77px;
   width: 100%;
   height: 77px;
   background: #FFFFFF;
   border-top: 1px solid #F0F0F0;
   box-shadow: 0 -4px 16px rgba(0,0,0,0.10);
-  display: flex;
+  display: flex !important;
   justify-content: space-around;
   align-items: center;
   padding-top: 0;
   padding-bottom: 10px;
-  z-index: 99999;
+  z-index: 99999 !important;
   border-radius: 0 0 42px 42px;
   opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
   overflow: visible;
   transition: opacity 0.2s, transform 0.2s;
 }
@@ -215,7 +224,7 @@ body.keyboard-open .bottom-nav {
 }
 
 /* ── Page system ── */
-.page { display: none; width: 100%; position: absolute; top: 0; left: 0; right: 0; bottom: 77px; z-index: 1; overflow: hidden; }
+.page { display: none; width: 100%; flex: 1; min-height: 0; position: relative; z-index: 1; overflow: hidden; }
 .page.active { display: flex; flex-direction: column; }
 
 /* ── AI 智能助手工作台 ── */
