@@ -143,6 +143,20 @@ body {
   transform: translateY(100%);
   z-index: -1;
 }
+
+/* ── 键盘弹出时隐藏底部导航栏 ── */
+body.keyboard-open .bottom-nav {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(100%) !important;
+}
+
+/* 安全兜底：视口高度过低时隐藏导航栏 */
+@media screen and (max-height: 500px) {
+  .bottom-nav { display: none !important; }
+}
+
 .nav-item {
   display: flex; flex-direction: column; align-items: center;
   gap: 4px; cursor: pointer; flex: 1; padding: 10px 0; transition: all 0.2s;
@@ -401,7 +415,7 @@ body {
   border-top-right-radius: 20px;
   padding: 16px 16px calc(env(safe-area-inset-bottom, 20px) + 16px);
   box-shadow: 0 -4px 20px rgba(0,0,0,0.04);
-  z-index: 100;
+  z-index: 100000 !important;
 }
 .ai-input-main-row {
   display: flex;
@@ -4629,6 +4643,19 @@ document.getElementById('ai-chat-input').addEventListener('keypress', function(e
     handleAISend();
   }
 });
+
+// 键盘弹出/收起时隐藏底部导航栏
+var aiInputEl = document.getElementById('ai-chat-input');
+if (aiInputEl) {
+  aiInputEl.addEventListener('focus', function() {
+    document.body.classList.add('keyboard-open');
+  });
+  aiInputEl.addEventListener('blur', function() {
+    setTimeout(function() {
+      document.body.classList.remove('keyboard-open');
+    }, 100); // 延迟移除，防止闪烁
+  });
+}
 
 // SVG图标定义
 var svgChart = '<svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>';
