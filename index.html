@@ -126,7 +126,9 @@ body {
 
 /* ── Bottom nav (标准移动端导航栏) ── */
 .bottom-nav {
-  flex: 0 0 77px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 77px;
   background: #FFFFFF;
@@ -141,6 +143,9 @@ body {
   border-radius: 0 0 42px 42px;
   opacity: 1 !important;
   transform: none !important;
+  visibility: visible !important;
+  overflow: visible;
+}
   visibility: visible !important;
   overflow: visible;
   transition: opacity 0.2s, transform 0.2s;
@@ -224,7 +229,7 @@ body.keyboard-open .bottom-nav {
 }
 
 /* ── Page system ── */
-.page { display: none; width: 100%; flex: 1; min-height: 0; position: relative; z-index: 1; overflow: hidden; }
+.page { display: none; width: 100%; position: absolute; top: 0; left: 0; right: 0; bottom: 77px; z-index: 1; overflow: hidden; }
 .page.active { display: flex; flex-direction: column; }
 
 /* ── AI 智能助手工作台 ── */
