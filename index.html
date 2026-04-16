@@ -212,8 +212,8 @@ body.keyboard-open .bottom-nav {
 }
 
 /* ── Page system ── */
-.page { display: none; width: 100%; flex: 1; min-height: 0; position: relative; z-index: 1; }
-.page.active { display: flex; flex-direction: column; }
+.page { display: none; width: 100%; min-height: 0; position: relative; z-index: 1; }
+.page.active { display: flex; flex-direction: column; flex: 1; max-height: calc(100% - 77px); }
 
 /* ── AI 智能助手工作台 ── */
 #ai-chat-modal {
