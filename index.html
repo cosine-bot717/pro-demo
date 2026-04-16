@@ -1722,18 +1722,13 @@ body.keyboard-open .bottom-nav {
 .highlight-text { font-size:13px; color:var(--text-sub); line-height:1.5; }
 
 .buy-bar {
-    position: absolute !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    background: #FFFFFF !important;
-    border-top: 1px solid #EBEBEB !important;
-    padding: 10px 16px calc(env(safe-area-inset-bottom, 20px) + 10px) !important;
-    display: flex !important;
-    gap: 10px !important;
-    align-items: center !important;
-    z-index: 9999 !important;
-    box-sizing: border-box !important;
+  background: #FFFFFF;
+  border-top: 1px solid #EBEBEB;
+  padding: 12px 16px 24px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 16px;
 }
 .buy-price { flex:1; }
 .price-now { font-size:22px; font-weight:700; color:var(--red); }
@@ -3002,15 +2997,15 @@ body.keyboard-open .bottom-nav {
               </div>
             </div>
           </div>
+          <!-- 底部操作栏 -->
+          <div class="buy-bar" id="live-buy-bar">
+            <div class="buy-price">
+              <div class="price-now" id="live-price-text">免费观看</div>
+            </div>
+            <div class="btn-trial" id="live-subscribe-btn" onclick="showToast('预约成功！开播前将提醒你')">预约提醒</div>
+            <div class="btn-buy" id="live-enter-btn">进入直播</div>
+          </div>
         </div>
-      </div>
-      <!-- 底部操作栏 -->
-      <div class="buy-bar" id="live-buy-bar">
-        <div class="buy-price">
-          <div class="price-now" id="live-price-text">免费观看</div>
-        </div>
-        <div class="btn-trial" id="live-subscribe-btn" onclick="showToast('预约成功！开播前将提醒你')">预约提醒</div>
-        <div class="btn-buy" id="live-enter-btn">进入直播</div>
       </div>
     </div>
 
@@ -3065,16 +3060,16 @@ body.keyboard-open .bottom-nav {
             </div>
             <div style="text-align:center;margin-top:8px;font-size:12px;color:#AAA;">购买后解锁全部 68 页</div>
           </div>
+          <!-- 底部购买栏 -->
+          <div class="buy-bar">
+            <div class="buy-price">
+              <div class="price-now" id="report-price-now">¥ 99</div>
+              <div class="price-orig" id="report-price-orig">原价 ¥ 199</div>
+            </div>
+            <div class="btn-trial">预览</div>
+            <div class="btn-buy" onclick="showOrderPage()">立即购买</div>
+          </div>
         </div>
-      </div>
-      <!-- 底部购买栏 -->
-      <div class="buy-bar">
-        <div class="buy-price">
-          <div class="price-now" id="report-price-now">¥ 99</div>
-          <div class="price-orig" id="report-price-orig">原价 ¥ 199</div>
-        </div>
-        <div class="btn-trial">预览</div>
-        <div class="btn-buy" onclick="showOrderPage()">立即购买</div>
       </div>
     </div>
 
@@ -3138,16 +3133,16 @@ body.keyboard-open .bottom-nav {
           <div id="tab-circle" style="display:none">
             <div style="padding:30px;text-align:center;color:var(--text-hint);font-size:13px">购买后解锁专属圈子</div>
           </div>
+          <!-- 底部购买栏 -->
+          <div class="buy-bar">
+            <div class="buy-price">
+              <div class="price-now">¥ 199</div>
+              <div class="price-orig">原价 ¥ 399</div>
+            </div>
+            <div class="btn-trial">试听免费</div>
+            <div class="btn-buy" onclick="showOrderPage()">立即购买</div>
+          </div>
         </div>
-      </div>
-
-      <div class="buy-bar">
-        <div class="buy-price">
-          <div class="price-now">¥ 199</div>
-          <div class="price-orig">原价 ¥ 399</div>
-        </div>
-        <div class="btn-trial">试听免费</div>
-        <div class="btn-buy" onclick="showOrderPage()">立即购买</div>
       </div>
     </div>
 
