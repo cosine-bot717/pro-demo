@@ -74,7 +74,7 @@ body {
   border-radius: 42px;
   display: flex; flex-direction: column; position: relative;
   overflow: hidden;
-  isolation: isolate; /* 确保z-index层叠上下文正确 */
+  isolation: isolate;
 }
 
 /* ── Status bar ── */
@@ -118,7 +118,9 @@ body {
 
 /* ── Bottom nav (标准移动端导航栏) ── */
 .bottom-nav {
-  flex-shrink: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 77px;
   background: #FFFFFF;
@@ -212,8 +214,8 @@ body.keyboard-open .bottom-nav {
 }
 
 /* ── Page system ── */
-.page { display: none; width: 100%; min-height: 0; position: relative; z-index: 1; }
-.page.active { display: flex; flex-direction: column; flex: 1; max-height: calc(100% - 77px); }
+.page { display: none; width: 100%; min-height: 0; position: relative; z-index: 1; overflow: hidden; }
+.page.active { display: flex; flex-direction: column; flex: 1; }
 
 /* ── AI 智能助手工作台 ── */
 #ai-chat-modal {
